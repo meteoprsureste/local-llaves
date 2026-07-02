@@ -3,74 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Mapa de localizació de barreras del Parque</title>
-
-    <!-- Estilos de Leaflet -->
+    <title>Mi Mapa de Localizaciones</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    
     <style>
-        /* El mapa ocupará toda la pantalla */
-        html, body, #map {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-        }
+        html, body, #map { margin: 0; padding: 0; width: 100%; height: 100%; }
     </style>
 </head>
 <body>
 
-    <!-- Contenedor donde se dibujará el mapa -->
     <div id="map"></div>
 
-    <!-- Scripts de Leaflet y el plugin para leer KML -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-plugins@3.4.0/layer/vector/KML.js"></script>
+    <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js"></script>
 
-<script>
-        // 1. Inicializamos el mapa
+    <script>
         const map = L.map('map').setView([0, 0], 2);
 
-        // 2. Capa visual de OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        // 3. Cargamos tu archivo KML
-        const kmlLayer = new L.KML("PRSKeys.kml", {async: true});
-        
-        kmlLayer.on("loaded", function(e) {
-            // Ajustamos el zoom automáticamente
-            map.fitBounds(e.target.getBounds());
+        // Cargamos el KML usando Omnivore (lo convierte automáticamente a un formato limpio)
+        const kmlLayer = omnivore.kml("PRSKeys.kml")
+            .on('ready', function() {
+                // Ajusta la pantalla a los puntos del mapa automáticamente
+                map.fitBounds(kmlLayer.getBounds());
 
-            // Recorremos los puntos extraídos del KML
-            e.target.eachLayer(function(layer) {
-                
-                // --- CÓDIGO ULTRA-COMPATIBLE PARA LEER NOMBRE Y DESCRIPCIÓN ---
-                let name = "Sin nombre";
-                let description = "";
+                // Recorremos cada punto cargado
+                kmlLayer.eachLayer(function(layer) {
+                    // CHIVATO: Esto nos dirá en la consola del navegador qué datos tiene guardados el punto
+                    console.log("Datos del punto detectados:", layer.feature.properties);
 
-                // Intento 1: Buscar en las opciones del KML directamente (Muy común en este plugin)
-                if (layer.options) {
-                    if (layer.options.title) name = layer.options.title;
-                    if (layer.options.description) description = layer.options.description;
-                }
+                    if (layer.feature && layer.feature.properties) {
+                        const props = layer.feature.properties;
+                        // Buscamos el nombre y la descripción sin importar si están en mayúsculas o minúsculas
+                        const name = props.name || props.Name || props.title || "Punto sin nombre";
+                        const description = props.description || props.Description || "";
 
-                // Intento 2: Buscar en la estructura estándar GeoJSON si existiera
-                if (layer.feature && layer.feature.properties) {
-                    if (layer.feature.properties.name) name = layer.feature.properties.name;
-                    if (layer.feature.properties.description) description = layer.feature.properties.description;
-                }
-                
-                // Si hemos encontrado al menos un nombre o descripción, creamos el globo
-                if (name !== "Sin nombre" || description !== "") {
-                    const popupContent = `<strong>${name}</strong>${description ? '<br><br>' + description : ''}`;
-                    layer.bindPopup(popupContent);
-                }
-            });
-        });
-
-        map.addLayer(kmlLayer);
-</script>
+                        const popupContent = `<strong>${name}</strong>${description ? '<br><br>' + description : ''}`;
+                        layer.bindPopup(popupContent);
+                    }
+                });
+            })
+            .on('error', function(e) {
+                console.error("Error crítico cargando el archivo KML:", e);
+            })
+            .addTo(map);
+    </script>
 </body>
 </html>
