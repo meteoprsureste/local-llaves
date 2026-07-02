@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Mapa de localizació de barreras del Parque</title>
+
+    <!-- Estilos de Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        /* El mapa ocupará toda la pantalla */
+        html, body, #map {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor donde se dibujará el mapa -->
+    <div id="map"></div>
+
+    <!-- Scripts de Leaflet y el plugin para leer KML -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-plugins@3.4.0/layer/vector/KML.js"></script>
+
+    <script>
+        // 1. Inicializamos el mapa apuntando por defecto al centro del mundo
+        const map = L.map('map').setView([0, 0], 2);
+
+        // 2. Añadimos el diseño del mapa (capa visual de OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // 3. Cargamos tu archivo KML de forma relativa
+        const kmlLayer = new L.KML("PRSKeys.kml", {async: true});
+        
+        kmlLayer.on("loaded", function(e) {
+            // Cuando tu archivo termine de cargar, el mapa se moverá automáticamente a tus puntos
+            map.fitBounds(e.target.getBounds());
+        });
+
+        map.addLayer(kmlLayer);
+    </script>
+</body>
+</html>
