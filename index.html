@@ -27,7 +27,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-plugins@3.4.0/layer/vector/KML.js"></script>
 
-    <script>
+<script>
         // 1. Inicializamos el mapa apuntando por defecto al centro del mundo
         const map = L.map('map').setView([0, 0], 2);
 
@@ -42,9 +42,25 @@
         kmlLayer.on("loaded", function(e) {
             // Cuando tu archivo termine de cargar, el mapa se moverá automáticamente a tus puntos
             map.fitBounds(e.target.getBounds());
+
+            // --- NUEVO CÓDIGO: Activar los pop-ups al hacer clic ---
+            e.target.eachLayer(function(layer) {
+                // Comprobamos si el punto tiene un nombre o descripción guardada en el KML
+                if (layer.feature && layer.feature.properties) {
+                    const name = layer.feature.properties.name || "Sin nombre";
+                    const description = layer.feature.properties.description || "";
+                    
+                    // Creamos el contenido del globo (puedes usar HTML para darle formato)
+                    const popupContent = `<strong>${name}</strong><br><br>${description}`;
+                    
+                    // Vinculamos el pop-up al marcador
+                    layer.bindPopup(popupContent);
+                }
+            });
+            // -------------------------------------------------------
         });
 
         map.addLayer(kmlLayer);
-    </script>
+</script>
 </body>
 </html>
