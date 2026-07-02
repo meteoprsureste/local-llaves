@@ -28,36 +28,46 @@
     <script src="https://unpkg.com/leaflet-plugins@3.4.0/layer/vector/KML.js"></script>
 
 <script>
-        // 1. Inicializamos el mapa apuntando por defecto al centro del mundo
+        // 1. Inicializamos el mapa
         const map = L.map('map').setView([0, 0], 2);
 
-        // 2. Añadimos el diseño del mapa (capa visual de OpenStreetMap)
+        // 2. Capa visual de OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        // 3. Cargamos tu archivo KML de forma relativa
+        // 3. Cargamos tu archivo KML
         const kmlLayer = new L.KML("PRSKeys.kml", {async: true});
         
         kmlLayer.on("loaded", function(e) {
-            // Cuando tu archivo termine de cargar, el mapa se moverá automáticamente a tus puntos
+            // Ajustamos el zoom automáticamente
             map.fitBounds(e.target.getBounds());
 
-            // --- NUEVO CÓDIGO: Activar los pop-ups al hacer clic ---
+            // Recorremos los puntos extraídos del KML
             e.target.eachLayer(function(layer) {
-                // Comprobamos si el punto tiene un nombre o descripción guardada en el KML
+                
+                // --- CÓDIGO ULTRA-COMPATIBLE PARA LEER NOMBRE Y DESCRIPCIÓN ---
+                let name = "Sin nombre";
+                let description = "";
+
+                // Intento 1: Buscar en las opciones del KML directamente (Muy común en este plugin)
+                if (layer.options) {
+                    if (layer.options.title) name = layer.options.title;
+                    if (layer.options.description) description = layer.options.description;
+                }
+
+                // Intento 2: Buscar en la estructura estándar GeoJSON si existiera
                 if (layer.feature && layer.feature.properties) {
-                    const name = layer.feature.properties.name || "Sin nombre";
-                    const description = layer.feature.properties.description || "";
-                    
-                    // Creamos el contenido del globo (puedes usar HTML para darle formato)
-                    const popupContent = `<strong>${name}</strong><br><br>${description}`;
-                    
-                    // Vinculamos el pop-up al marcador
+                    if (layer.feature.properties.name) name = layer.feature.properties.name;
+                    if (layer.feature.properties.description) description = layer.feature.properties.description;
+                }
+                
+                // Si hemos encontrado al menos un nombre o descripción, creamos el globo
+                if (name !== "Sin nombre" || description !== "") {
+                    const popupContent = `<strong>${name}</strong>${description ? '<br><br>' + description : ''}`;
                     layer.bindPopup(popupContent);
                 }
             });
-            // -------------------------------------------------------
         });
 
         map.addLayer(kmlLayer);
