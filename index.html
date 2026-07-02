@@ -23,24 +23,47 @@
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        // Cargamos el KML usando Omnivore (lo convierte automáticamente a un formato limpio)
+        // Cargamos el KML usando Omnivore
         const kmlLayer = omnivore.kml("PRSKeys.kml")
             .on('ready', function() {
-                // Ajusta la pantalla a los puntos del mapa automáticamente
                 map.fitBounds(kmlLayer.getBounds());
 
-                // Recorremos cada punto cargado
                 kmlLayer.eachLayer(function(layer) {
-                    // CHIVATO: Esto nos dirá en la consola del navegador qué datos tiene guardados el punto
-                    console.log("Datos del punto detectados:", layer.feature.properties);
-
                     if (layer.feature && layer.feature.properties) {
                         const props = layer.feature.properties;
-                        // Buscamos el nombre y la descripción sin importar si están en mayúsculas o minúsculas
                         const name = props.name || props.Name || props.title || "Punto sin nombre";
                         const description = props.description || props.Description || "";
 
-                        const popupContent = `<strong>${name}</strong>${description ? '<br><br>' + description : ''}`;
+                        // --- NUEVO: OBTENER COORDENADAS PARA GOOGLE MAPS ---
+                        // Leaflet guarda las coordenadas de forma diferente si es un punto (marker) o una línea/polígono
+                        let lat, lng;
+                        if (layer.getLatLng) { 
+                            // Si es un marcador simple
+                            lat = layer.getLatLng().lat;
+                            lng = layer.getLatLng().lng;
+                        } else if (layer.getBounds) { 
+                            // Si es una línea o área, usamos el centro geométrico
+                            lat = layer.getBounds().getCenter().lat;
+                            lng = layer.getBounds().getCenter().lng;
+                        }
+
+                        // Creamos el enlace a Google Maps usando la API de direcciones (?api=1&destination=...)
+                        const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+                        
+                        // Diseñamos el botón de "¿Cómo llegar?" con un estilo sencillo
+                        const directionsLink = `<br><br><a href="${googleMapsUrl}" target="_blank" style="
+                            display: inline-block; 
+                            background-color: #1a73e8; 
+                            color: white; 
+                            padding: 5px 10px; 
+                            text-decoration: none; 
+                            border-radius: 4px; 
+                            font-size: 12px; 
+                            font-weight: bold;
+                        ">📍 ¿Cómo llegar?</a>`;
+
+                        // Juntamos todo el contenido en el pop-up
+                        const popupContent = `<strong>${name}</strong>${description ? '<br><br>' + description : ''}${directionsLink}`;
                         layer.bindPopup(popupContent);
                     }
                 });
