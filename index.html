@@ -17,6 +17,8 @@
     <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js"></script>
 
 <script>
+    // Esperamos a que la página cargue para lanzar la contraseña
+    window.addEventListener('DOMContentLoaded', () => {
         // 1. CONFIGURA AQUÍ TU CONTRASEÑA
         const CLAVE_CORRECTA = "Sureste94"; 
 
@@ -30,62 +32,64 @@
             // Si acierta, cargamos todo el mapa normalmente
             inicializarMapa();
         }
+    });
 
-        function inicializarMapa() {
-            // Capa 1: OpenStreetMap
-            const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
-            });
+    function inicializarMapa() {
+        // Capa 1: OpenStreetMap
+        const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        });
 
-            // Capa 2: Satélite
-            const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                attribution: 'Tiles © Esri'
-            });
+        // Capa 2: Satélite
+        const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles © Esri'
+        });
 
-            const map = L.map('map', {
-                center: [0, 0],
-                zoom: 2,
-                layers: [osmLayer]
-            });
+        const map = L.map('map', {
+            center: [0, 0],
+            zoom: 2,
+            layers: [osmLayer]
+        });
 
-            const baseMaps = {
-                "Mapa de Carreteras": osmLayer,
-                "Vista Satélite": satelliteLayer
-            };
+        const baseMaps = {
+            "Mapa de Carreteras": osmLayer,
+            "Vista Satélite": satelliteLayer
+        };
 
-            L.control.layers(baseMaps, null, { collapsed: false }).addTo(map);
+        L.control.layers(baseMaps, null, { collapsed: false }).addTo(map);
 
-            // Cargamos el KML usando Omnivore
-            const kmlLayer = omnivore.kml("PRSKeys.kml")
-                .on('ready', function() {
-                    map.fitBounds(kmlLayer.getBounds());
+        // Cargamos el KML usando Omnivore
+        const kmlLayer = omnivore.kml("PRSKeys.kml")
+            .on('ready', function() {
+                map.fitBounds(kmlLayer.getBounds());
 
-                    kmlLayer.eachLayer(function(layer) {
-                        if (layer.feature && layer.feature.properties) {
-                            const props = layer.feature.properties;
-                            const name = props.name || props.Name || props.title || "Punto sin nombre";
-                            const description = props.description || props.Description || "";
+                kmlLayer.eachLayer(function(layer) {
+                    if (layer.feature && layer.feature.properties) {
+                        const props = layer.feature.properties;
+                        const name = props.name || props.Name || props.title || "Punto sin nombre";
+                        const description = props.description || props.Description || "";
 
-                            let lat, lng;
-                            if (layer.getLatLng) { 
-                                lat = layer.getLatLng().lat;
-                                lng = layer.getLatLng().lng;
-                            } else if (layer.getBounds) { 
-                                lat = layer.getBounds().getCenter().lat;
-                                lng = layer.getBounds().getCenter().lng;
-                            }
-
-                            const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
-                            
-                            const directionsLink = `<br><br><a href="${googleMapsUrl}" target="_blank" style="display: inline-block; background-color: #1a73e8; color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: bold;">📍 ¿Cómo llegar?</a>`;
-
-                            const popupContent = `<strong>${name}</strong>${description ? '<br><br>' + description : ''}${directionsLink}`;
-                            layer.bindPopup(popupContent);
+                        let lat, lng;
+                        if (layer.getLatLng) { 
+                            lat = layer.getLatLng().lat;
+                            lng = layer.getLatLng().lng;
+                        } else if (layer.getBounds) { 
+                            lat = layer.getBounds().getCenter().lat;
+                            lng = layer.getBounds().getCenter().lng;
                         }
-                    });
-                })
-                .addTo(map);
-        }
-    </script>
+
+                        // --- CORREGIDO: Sintaxis limpia para la URL de Google Maps ---
+                        const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+                        
+                        const directionsLink = `<br><br><a href="${googleMapsUrl}" target="_blank" style="display: inline-block; background-color: #1a73e8; color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: bold;">📍 ¿Cómo llegar?</a>`;
+
+                        const popupContent = `<strong>${name}</strong>${description ? '<br><br>' + description : ''}${directionsLink}`;
+                        layer.bindPopup(popupContent);
+                    }
+                });
+            })
+            .addTo(map);
+    }
+</script>
 </body>
 </html>
