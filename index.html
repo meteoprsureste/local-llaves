@@ -17,78 +17,75 @@
     <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js"></script>
 
 <script>
-        // 1. CREAMOS LAS CAPAS MAPA BASE (Sin añadirlas al mapa aún)
-        
-        // Capa 1: OpenStreetMap (Carreteras)
-        const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        });
+        // 1. CONFIGURA AQUÍ TU CONTRASEÑA
+        const CLAVE_CORRECTA = "Sureste94"; 
 
-        // Capa 2: Esri World Imagery (Satélite / Ortofotografía)
-        const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-        });
+        // Pedimos la contraseña al usuario al entrar
+        const intentoUsuario = prompt("Por favor, introduce la contraseña para ver el mapa:");
 
-        // 2. INICIALIZAMOS EL MAPA (Establecemos OpenStreetMap como capa por defecto)
-        const map = L.map('map', {
-            center: [0, 0],
-            zoom: 2,
-            layers: [osmLayer] // Capa inicial
-        });
+        if (intentoUsuario !== CLAVE_CORRECTA) {
+            // Si falla, borramos la pantalla y mostramos error
+            document.body.innerHTML = '<h1 style="text-align:center; margin-top:20%; font-family:sans-serif; color:#d93025;">🚫 Acceso Denegado. Contraseña incorrecta.</h1>';
+        } else {
+            // Si acierta, cargamos todo el mapa normalmente
+            inicializarMapa();
+        }
 
-        // 3. CONFIGURAMOS EL SELECTOR DE CAPAS (Menú flotante arriba a la derecha)
-        const baseMaps = {
-            "Mapa de Carreteras": osmLayer,
-            "Vista Satélite": satelliteLayer
-        };
+        function inicializarMapa() {
+            // Capa 1: OpenStreetMap
+            const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            });
 
-        // Añadimos el control al mapa
-        L.control.layers(baseMaps, null, { collapsed: false }).addTo(map);
+            // Capa 2: Satélite
+            const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Tiles © Esri'
+            });
 
+            const map = L.map('map', {
+                center: [0, 0],
+                zoom: 2,
+                layers: [osmLayer]
+            });
 
-        // 4. CARGAMOS TU ARCHIVO KML (Igual que antes)
-        const kmlLayer = omnivore.kml("PRSKeys.kml")
-            .on('ready', function() {
-                map.fitBounds(kmlLayer.getBounds());
+            const baseMaps = {
+                "Mapa de Carreteras": osmLayer,
+                "Vista Satélite": satelliteLayer
+            };
 
-                kmlLayer.eachLayer(function(layer) {
-                    if (layer.feature && layer.feature.properties) {
-                        const props = layer.feature.properties;
-                        const name = props.name || props.Name || props.title || "Punto sin nombre";
-                        const description = props.description || props.Description || "";
+            L.control.layers(baseMaps, null, { collapsed: false }).addTo(map);
 
-                        let lat, lng;
-                        if (layer.getLatLng) { 
-                            lat = layer.getLatLng().lat;
-                            lng = layer.getLatLng().lng;
-                        } else if (layer.getBounds) { 
-                            lat = layer.getBounds().getCenter().lat;
-                            lng = layer.getBounds().getCenter().lng;
+            // Cargamos el KML usando Omnivore
+            const kmlLayer = omnivore.kml("PRSKeys.kml")
+                .on('ready', function() {
+                    map.fitBounds(kmlLayer.getBounds());
+
+                    kmlLayer.eachLayer(function(layer) {
+                        if (layer.feature && layer.feature.properties) {
+                            const props = layer.feature.properties;
+                            const name = props.name || props.Name || props.title || "Punto sin nombre";
+                            const description = props.description || props.Description || "";
+
+                            let lat, lng;
+                            if (layer.getLatLng) { 
+                                lat = layer.getLatLng().lat;
+                                lng = layer.getLatLng().lng;
+                            } else if (layer.getBounds) { 
+                                lat = layer.getBounds().getCenter().lat;
+                                lng = layer.getBounds().getCenter().lng;
+                            }
+
+                            const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+                            
+                            const directionsLink = `<br><br><a href="${googleMapsUrl}" target="_blank" style="display: inline-block; background-color: #1a73e8; color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: bold;">📍 ¿Cómo llegar?</a>`;
+
+                            const popupContent = `<strong>${name}</strong>${description ? '<br><br>' + description : ''}${directionsLink}`;
+                            layer.bindPopup(popupContent);
                         }
-
-                        // Enlace a Google Maps
-                        const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
-                        
-                        const directionsLink = `<br><br><a href="${googleMapsUrl}" target="_blank" style="
-                            display: inline-block; 
-                            background-color: #1a73e8; 
-                            color: white; 
-                            padding: 5px 10px; 
-                            text-decoration: none; 
-                            border-radius: 4px; 
-                            font-size: 12px; 
-                            font-weight: bold;
-                        ">📍 ¿Cómo llegar?</a>`;
-
-                        const popupContent = `<strong>${name}</strong>${description ? '<br><br>' + description : ''}${directionsLink}`;
-                        layer.bindPopup(popupContent);
-                    }
-                });
-            })
-            .on('error', function(e) {
-                console.error("Error crítico cargando el archivo KML:", e);
-            })
-            .addTo(map);
+                    });
+                })
+                .addTo(map);
+        }
     </script>
 </body>
 </html>
