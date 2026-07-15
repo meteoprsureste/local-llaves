@@ -7,6 +7,29 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         html, body, #map { margin: 0; padding: 0; width: 100%; height: 100%; }
+
+        /* Estilo base para el texto de actualización */
+        .info-actualizacion {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 6px 10px;
+            background-color: rgba(255, 255, 255, 0.2); /* Fondo sutil semi-transparente */
+            border-radius: 4px;
+            transition: color 0.3s ease; /* Transición suave al cambiar de color */
+        }
+
+        /* Clase para texto en Negro (Mapa de Carreteras) */
+        .texto-negro {
+            color: #000000;
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8); /* Sombra clara para mejorar legibilidad */
+        }
+
+        /* Clase para texto en Blanco (Vista Satélite) */
+        .texto-blanco {
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9); /* Sombra oscura para destacar sobre el satélite */
+        }
     </style>
 </head>
 <body>
@@ -16,80 +39,104 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js"></script>
 
-<script>
-    // Esperamos a que la página cargue para lanzar la contraseña
-    window.addEventListener('DOMContentLoaded', () => {
-        // 1. CONFIGURA AQUÍ TU CONTRASEÑA
-        const CLAVE_CORRECTA = "Sureste94"; 
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const CLAVE_CORRECTA = "Sureste94"; 
 
-        // Pedimos la contraseña al usuario al entrar
-        const intentoUsuario = prompt("Por favor, introduce la contraseña para ver el mapa:");
+            const intentoUsuario = prompt("Por favor, introduce la contraseña para ver el mapa:");
 
-        if (intentoUsuario !== CLAVE_CORRECTA) {
-            // Si falla, borramos la pantalla y mostramos error
-            document.body.innerHTML = '<h1 style="text-align:center; margin-top:20%; font-family:sans-serif; color:#d93025;">🚫 Acceso Denegado. Contraseña incorrecta.</h1>';
-        } else {
-            // Si acierta, cargamos todo el mapa normalmente
-            inicializarMapa();
-        }
-    });
-
-    function inicializarMapa() {
-        // Capa 1: OpenStreetMap
-        const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
+            if (intentoUsuario !== CLAVE_CORRECTA) {
+                document.body.innerHTML = '<h1 style="text-align:center; margin-top:20%; font-family:sans-serif; color:#d93025;">🚫 Acceso Denegado. Contraseña incorrecta.</h1>';
+            } else {
+                inicializarMapa();
+            }
         });
 
-        // Capa 2: Satélite
-        const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-            attribution: 'Tiles © Esri'
-        });
+        function inicializarMapa() {
+            // Capa 1: OpenStreetMap (Carreteras)
+            const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            });
 
-        const map = L.map('map', {
-            center: [0, 0],
-            zoom: 2,
-            layers: [osmLayer]
-        });
+            // Capa 2: Satélite (Esri World Imagery)
+            const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Tiles © Esri'
+            });
 
-        const baseMaps = {
-            "Mapa de Carreteras": osmLayer,
-            "Vista Satélite": satelliteLayer
-        };
+            const map = L.map('map', {
+                center: [0, 0],
+                zoom: 2,
+                layers: [osmLayer]
+            });
 
-        L.control.layers(baseMaps, null, { collapsed: false }).addTo(map);
+            const baseMaps = {
+                "Mapa de Carreteras": osmLayer,
+                "Vista Satélite": satelliteLayer
+            };
 
-        // Cargamos el KML usando Omnivore
-        const kmlLayer = omnivore.kml("PRSKeys.kml")
-            .on('ready', function() {
-                map.fitBounds(kmlLayer.getBounds());
+            L.control.layers(baseMaps, null, { collapsed: false }).addTo(map);
 
-                kmlLayer.eachLayer(function(layer) {
-                    if (layer.feature && layer.feature.properties) {
-                        const props = layer.feature.properties;
-                        const name = props.name || props.Name || props.title || "Punto sin nombre";
-                        const description = props.description || props.Description || "";
+            // --- NUEVO: CREAR LA ETIQUETA DE FECHA (Inferior izquierda) ---
+            const infoControl = L.control({ position: 'bottomleft' });
 
-                        let lat, lng;
-                        if (layer.getLatLng) { 
-                            lat = layer.getLatLng().lat;
-                            lng = layer.getLatLng().lng;
-                        } else if (layer.getBounds) { 
-                            lat = layer.getBounds().getCenter().lat;
-                            lng = layer.getBounds().getCenter().lng;
+            infoControl.onAdd = function (map) {
+                const div = L.DomUtil.create('div', 'info-actualizacion texto-negro'); // Inicia en negro por defecto
+                
+                // === CONFIGURA AQUÍ TU FECHA DE ACTUALIZACIÓN ===
+                div.innerHTML = "Actualizado el 15 07 2026"; 
+                
+                return div;
+            };
+
+            infoControl.addTo(map);
+
+            // --- NUEVO: DETECTAR EL CAMBIO DE CAPA PARA MODIFICAR EL COLOR ---
+            map.on('baselayerchange', function(event) {
+                const divInfo = document.querySelector('.info-actualizacion');
+                if (!divInfo) return;
+
+                if (event.layer === satelliteLayer) {
+                    // Si pasamos a Satélite, ponemos texto blanco
+                    divInfo.classList.remove('texto-negro');
+                    divInfo.classList.add('texto-blanco');
+                } else {
+                    // Si volvemos a Carreteras, ponemos texto negro
+                    divInfo.classList.remove('texto-blanco');
+                    divInfo.classList.add('texto-negro');
+                }
+            });
+
+            // Cargamos el KML usando Omnivore
+            const kmlLayer = omnivore.kml("PRSKeys.kml")
+                .on('ready', function() {
+                    map.fitBounds(kmlLayer.getBounds());
+
+                    kmlLayer.eachLayer(function(layer) {
+                        if (layer.feature && layer.feature.properties) {
+                            const props = layer.feature.properties;
+                            const name = props.name || props.Name || props.title || "Punto sin nombre";
+                            const description = props.description || props.Description || "";
+
+                            let lat, lng;
+                            if (layer.getLatLng) { 
+                                lat = layer.getLatLng().lat;
+                                lng = layer.getLatLng().lng;
+                            } else if (layer.getBounds) { 
+                                lat = layer.getBounds().getCenter().lat;
+                                lng = layer.getBounds().getCenter().lng;
+                            }
+
+                            const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+                            
+                            const directionsLink = `<br><br><a href="${googleMapsUrl}" target="_blank" style="display: inline-block; background-color: #1a73e8; color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: bold;">📍 ¿Cómo llegar?</a>`;
+
+                            const popupContent = `<strong>${name}</strong>${description ? '<br><br>' + description : ''}${directionsLink}`;
+                            layer.bindPopup(popupContent);
                         }
-
-                        // --- CORREGIDO: Sintaxis limpia para la URL de Google Maps ---
-                        const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
-                        
-                        const directionsLink = `<br><br><a href="${googleMapsUrl}" target="_blank" style="display: inline-block; background-color: #1a73e8; color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: bold;">📍 ¿Cómo llegar?</a>`;
-
-                        const popupContent = `<strong>${name}</strong>${description ? '<br><br>' + description : ''}${directionsLink}`;
-                        layer.bindPopup(popupContent);
-                    }
-                });
-            })
-            .addTo(map);
-    }
-</script>
+                    });
+                })
+                .addTo(map);
+        }
+    </script>
 </body>
 </html>
