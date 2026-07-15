@@ -51,8 +51,8 @@
 
         function inicializarMapa() {
             // === IMPORTANTE: RECUERDA PONER AQUÍ TUS DATOS DE REPOSITORIO ===
-            const GITHUB_USER = "TU-USUARIO-DE-GITHUB"; 
-            const GITHUB_REPO = "EL-NOMBRE-DE-TU-REPOSITORIO"; 
+            const GITHUB_USER = meteoprsureste; 
+            const GITHUB_REPO = local-llaves; 
 
             // Capa 1: OpenStreetMap (Carreteras)
             const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -124,7 +124,7 @@
             // 1. NUEVO: CARGAR EL LÍMITE DEL PARQUE (Abajo en el orden visual)
             // ====================================================================
             // Cambia "limite_parque.kml" por el nombre exacto de tu archivo del límite
-            const parqueLayer = omnivore.kml("limite_parque.kml")
+            const parqueLayer = omnivore.kml("PRSLimite.kml")
                 .on('ready', function() {
                     // Aplicamos el estilo transparente a los polígonos del parque
                     parqueLayer.setStyle({
