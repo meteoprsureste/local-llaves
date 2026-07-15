@@ -50,9 +50,9 @@
         });
 
         function inicializarMapa() {
-            // === IMPORTANTE: CONFIGURA ESTOS DOS DATOS PARA LA FECHA AUTOMÁTICA ===
-            const GITHUB_USER = meteoprsureste; // Tu usuario de GitHub
-            const GITHUB_REPO = local-llaves; // El nombre de este repositorio
+            // === IMPORTANTE: RECUERDA PONER AQUÍ TUS DATOS DE REPOSITORIO ===
+            const GITHUB_USER = "TU-USUARIO-DE-GITHUB"; 
+            const GITHUB_REPO = "EL-NOMBRE-DE-TU-REPOSITORIO"; 
 
             // Capa 1: OpenStreetMap (Carreteras)
             const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -77,48 +77,39 @@
 
             L.control.layers(baseMaps, null, { collapsed: false }).addTo(map);
 
-            // Creamos la etiqueta de fecha (se iniciará vacía y pondrá "Cargando fecha...")
+            // Etiqueta de fecha automática inferior izquierda
             const infoControl = L.control({ position: 'bottomleft' });
-
             infoControl.onAdd = function (map) {
                 const div = L.DomUtil.create('div', 'info-actualizacion texto-negro');
                 div.id = "fecha-actualizacion";
                 div.innerHTML = "Consultando actualización...";
                 return div;
             };
-
             infoControl.addTo(map);
 
-            // Llamamos a la API de GitHub para obtener de forma automática la fecha del KML
+            // API de GitHub para la fecha automática
             const apiEndpoint = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/commits?path=PRSKeys.kml&page=1&per_page=1`;
-            
             fetch(apiEndpoint)
                 .then(response => response.json())
                 .then(data => {
                     if (data && data.length > 0) {
-                        // Extraemos la fecha del último cambio en el archivo KML
                         const rawDate = new Date(data[0].commit.committer.date);
-                        
-                        // Formateamos la fecha en el formato solicitado: dd mm aaaa
                         const dia = String(rawDate.getDate()).padStart(2, '0');
-                        const mes = String(rawDate.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
+                        const mes = String(rawDate.getMonth() + 1).padStart(2, '0'); 
                         const anio = rawDate.getFullYear();
-                        
                         document.getElementById("fecha-actualizacion").innerHTML = `Actualizado el ${dia} ${mes} ${anio}`;
                     } else {
                         document.getElementById("fecha-actualizacion").innerHTML = "Fecha no disponible";
                     }
                 })
                 .catch(err => {
-                    console.error("Error obteniendo la fecha desde GitHub:", err);
                     document.getElementById("fecha-actualizacion").innerHTML = "Error al cargar fecha";
                 });
 
-            // Detectar el cambio de capa para modificar el color
+            // Control de color para el texto de actualización
             map.on('baselayerchange', function(event) {
                 const divInfo = document.querySelector('.info-actualizacion');
                 if (!divInfo) return;
-
                 if (event.layer === satelliteLayer) {
                     divInfo.classList.remove('texto-negro');
                     divInfo.classList.add('texto-blanco');
@@ -128,9 +119,30 @@
                 }
             });
 
-            // Cargamos el KML usando Omnivore
+
+            // ====================================================================
+            // 1. NUEVO: CARGAR EL LÍMITE DEL PARQUE (Abajo en el orden visual)
+            // ====================================================================
+            // Cambia "limite_parque.kml" por el nombre exacto de tu archivo del límite
+            const parqueLayer = omnivore.kml("limite_parque.kml")
+                .on('ready', function() {
+                    // Aplicamos el estilo transparente a los polígonos del parque
+                    parqueLayer.setStyle({
+                        color: "#ff3333",      // Color del borde del parque (Rojo intenso, puedes cambiarlo por ejemplo a #1a73e8 para azul)
+                        weight: 3,             // Grosor de la línea del borde en píxeles
+                        fillColor: "none",     // Sin color de relleno interno
+                        fillOpacity: 0         // Opacidad de relleno a 0 (100% transparente)
+                    });
+                })
+                .addTo(map);
+
+
+            // ====================================================================
+            // 2. CARGAR TUS PUNTOS PRINCIPALES (Encima en el orden visual)
+            // ====================================================================
             const kmlLayer = omnivore.kml("PRSKeys.kml")
                 .on('ready', function() {
+                    // Centramos el zoom de la pantalla prioritariamente en tus marcadores
                     map.fitBounds(kmlLayer.getBounds());
 
                     kmlLayer.eachLayer(function(layer) {
