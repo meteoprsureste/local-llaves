@@ -8,27 +8,24 @@
     <style>
         html, body, #map { margin: 0; padding: 0; width: 100%; height: 100%; }
 
-        /* Estilo base para el texto de actualización */
         .info-actualizacion {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 12px;
             font-weight: bold;
             padding: 6px 10px;
-            background-color: rgba(255, 255, 255, 0.2); /* Fondo sutil semi-transparente */
+            background-color: rgba(255, 255, 255, 0.2);
             border-radius: 4px;
-            transition: color 0.3s ease; /* Transición suave al cambiar de color */
+            transition: color 0.3s ease;
         }
 
-        /* Clase para texto en Negro (Mapa de Carreteras) */
         .texto-negro {
             color: #000000;
-            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8); /* Sombra clara para mejorar legibilidad */
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
         }
 
-        /* Clase para texto en Blanco (Vista Satélite) */
         .texto-blanco {
             color: #ffffff;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9); /* Sombra oscura para destacar sobre el satélite */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
         }
     </style>
 </head>
@@ -53,6 +50,10 @@
         });
 
         function inicializarMapa() {
+            // === IMPORTANTE: CONFIGURA ESTOS DOS DATOS PARA LA FECHA AUTOMÁTICA ===
+            const GITHUB_USER = meteoprsureste; // Tu usuario de GitHub
+            const GITHUB_REPO = local-llaves; // El nombre de este repositorio
+
             // Capa 1: OpenStreetMap (Carreteras)
             const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
@@ -76,31 +77,52 @@
 
             L.control.layers(baseMaps, null, { collapsed: false }).addTo(map);
 
-            // --- NUEVO: CREAR LA ETIQUETA DE FECHA (Inferior izquierda) ---
+            // Creamos la etiqueta de fecha (se iniciará vacía y pondrá "Cargando fecha...")
             const infoControl = L.control({ position: 'bottomleft' });
 
             infoControl.onAdd = function (map) {
-                const div = L.DomUtil.create('div', 'info-actualizacion texto-negro'); // Inicia en negro por defecto
-                
-                // === CONFIGURA AQUÍ TU FECHA DE ACTUALIZACIÓN ===
-                div.innerHTML = "Actualizado el 15 07 2026"; 
-                
+                const div = L.DomUtil.create('div', 'info-actualizacion texto-negro');
+                div.id = "fecha-actualizacion";
+                div.innerHTML = "Consultando actualización...";
                 return div;
             };
 
             infoControl.addTo(map);
 
-            // --- NUEVO: DETECTAR EL CAMBIO DE CAPA PARA MODIFICAR EL COLOR ---
+            // Llamamos a la API de GitHub para obtener de forma automática la fecha del KML
+            const apiEndpoint = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/commits?path=PRSKeys.kml&page=1&per_page=1`;
+            
+            fetch(apiEndpoint)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.length > 0) {
+                        // Extraemos la fecha del último cambio en el archivo KML
+                        const rawDate = new Date(data[0].commit.committer.date);
+                        
+                        // Formateamos la fecha en el formato solicitado: dd mm aaaa
+                        const dia = String(rawDate.getDate()).padStart(2, '0');
+                        const mes = String(rawDate.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
+                        const anio = rawDate.getFullYear();
+                        
+                        document.getElementById("fecha-actualizacion").innerHTML = `Actualizado el ${dia} ${mes} ${anio}`;
+                    } else {
+                        document.getElementById("fecha-actualizacion").innerHTML = "Fecha no disponible";
+                    }
+                })
+                .catch(err => {
+                    console.error("Error obteniendo la fecha desde GitHub:", err);
+                    document.getElementById("fecha-actualizacion").innerHTML = "Error al cargar fecha";
+                });
+
+            // Detectar el cambio de capa para modificar el color
             map.on('baselayerchange', function(event) {
                 const divInfo = document.querySelector('.info-actualizacion');
                 if (!divInfo) return;
 
                 if (event.layer === satelliteLayer) {
-                    // Si pasamos a Satélite, ponemos texto blanco
                     divInfo.classList.remove('texto-negro');
                     divInfo.classList.add('texto-blanco');
                 } else {
-                    // Si volvemos a Carreteras, ponemos texto negro
                     divInfo.classList.remove('texto-blanco');
                     divInfo.classList.add('texto-negro');
                 }
