@@ -327,5 +327,25 @@
 	<description>Acceso Aldehuela prados Manzanares</description>
       <Point><coordinates>-3.59763988235951,40.3041470093985</coordinates></Point>
   </Placemark>
+  <Placemark>
+	<name>D-PLA-3</name>
+	<description>Paseo de los Plátanos</description>
+      <Point><coordinates>-3.50546101088611,40.4193473169336</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>D-PLA-1</name>
+	<description>Paseo de los Plátanos</description>
+      <Point><coordinates>-3.5131252080596,40.4134486357586</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>D-PLA-2</name>
+	<description>Paseo de los Plátanos</description>
+      <Point><coordinates>-3.51350215620317,40.4134199349565</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>A-RIVI-1</name>
+	<description>Cortados El Piul</description>
+      <Point><coordinates>-3.50970782976663,40.3572737244594</coordinates></Point>
+  </Placemark>
 </Folder>
 </Document></kml>
