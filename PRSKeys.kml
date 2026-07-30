@@ -347,5 +347,30 @@
 	<description>Cortados El Piul</description>
       <Point><coordinates>-3.50970782976663,40.3572737244594</coordinates></Point>
   </Placemark>
+  <Placemark>
+	<name>R-MAP-1</name>
+	<description>Acceso La Marañosa-Pingarrón</description>
+      <Point><coordinates>-3.51437518408096,40.2072211528663</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>R-VRO-1</name>
+	<description>Acceso Valrromeroso</description>
+      <Point><coordinates>-3.52986614580562,40.192592048037</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>R-VED-2</name>
+	<description>Acceso El Vedadillo</description>
+      <Point><coordinates>-3.55427773429285,40.1592688824727</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>R-VED-1</name>
+	<description>Acceso El Vedadillo</description>
+      <Point><coordinates>-3.552121813486,40.1583962534135</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>R-SPI-2</name>
+	<description>Acceso sur Picón</description>
+      <Point><coordinates>-3.49978820311361,40.3631549669624</coordinates></Point>
+  </Placemark>
 </Folder>
 </Document></kml>
