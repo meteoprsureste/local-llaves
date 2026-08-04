@@ -372,5 +372,55 @@
 	<description>Acceso sur Picón</description>
       <Point><coordinates>-3.49978820311361,40.3631549669624</coordinates></Point>
   </Placemark>
+  <Placemark>
+	<name>R-VPI-2</name>
+	<description>Vega del Pingarrón - Marañosa</description>
+      <Point><coordinates>-3.54793697272008,40.2089230897704</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>R-VED-3</name>
+	<description>El Vedadillo</description>
+      <Point><coordinates>-3.55417214671565,40.1679455131963</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>R-MCO-1</name>
+	<description>Minas del Consuelo</description>
+      <Point><coordinates>-3.54839723430588,40.1931273976941</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>R-VPI-1</name>
+	<description>Vega del Pingarrón</description>
+      <Point><coordinates>-3.55393964753651,40.2072277794227</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>R-ALD-4</name>
+	<description>Camino Aldehuela</description>
+      <Point><coordinates>-3.62370251544854,40.3032185331108</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>R-ALD-5</name>
+	<description>Camino Aldehuela</description>
+      <Point><coordinates>-3.6238096582918,40.303353094061</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>R-CEU-2</name>
+	<description>Caminos acceso al río</description>
+      <Point><coordinates>-3.53724191949274,40.3261394202862</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>R-CEU-3</name>
+	<description>Caminos acceso al río</description>
+      <Point><coordinates>-3.53174339469675,40.3259666234487</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>R-VED-4</name>
+	<description>El Vedadillo</description>
+      <Point><coordinates>-3.55681667523656,40.1581485342943</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>R-SOT-1</name>
+	<description>Acceso explotación minera, el Sotillo</description>
+      <Point><coordinates>-3.57995597736634,40.1396736026943</coordinates></Point>
+  </Placemark>
 </Folder>
 </Document></kml>
