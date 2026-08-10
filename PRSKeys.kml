@@ -422,5 +422,15 @@
 	<description>Acceso explotación minera, el Sotillo</description>
       <Point><coordinates>-3.57995597736634,40.1396736026943</coordinates></Point>
   </Placemark>
+  <Placemark>
+	<name>P-MAS-1</name>
+	<description>Acceso Campillo por Maspalomas</description>
+      <Point><coordinates>-3.51478110452848,40.3220353025197</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>R-SFE-2</name>
+	<description>Acceso casas de San Félix</description>
+      <Point><coordinates>-3.65875732697867,40.2729513456268</coordinates></Point>
+  </Placemark>
 </Folder>
 </Document></kml>
