@@ -9,65 +9,71 @@
 	<SimpleField name="Codigo-Exp" type="string"></SimpleField>
 	<SimpleField name="Observaciones" type="string"></SimpleField>
 	<SimpleField name="Clave" type="string"></SimpleField>
+	<SimpleField name="Clave Parque" type="string"></SimpleField>
 </Schema>
 <Folder><name>PRSKeys</name>
   <Placemark>
-	<name>P-X-1-1</name>
+	<name>P-1-1</name>
 	<description>Entrada Islillas Norte</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
 		<SimpleData name="fid">1</SimpleData>
-		<SimpleData name="Codigo">P-X-1-1</SimpleData>
+		<SimpleData name="Codigo">P-1-1</SimpleData>
 		<SimpleData name="Nota">Entrada Islillas Norte</SimpleData>
 		<SimpleData name="Codigo-Exp">Llave maestra Parque #1</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">P1</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.49668069813721,40.4092661694728</coordinates></Point>
   </Placemark>
   <Placemark>
-	<name>P-X-1-2</name>
+	<name>P-1-2</name>
 	<description>Puente Islillas Sur</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
 		<SimpleData name="fid">2</SimpleData>
-		<SimpleData name="Codigo">P-X-1-2</SimpleData>
+		<SimpleData name="Codigo">P-1-2</SimpleData>
 		<SimpleData name="Nota">Puente Islillas Sur</SimpleData>
 		<SimpleData name="Codigo-Exp">Llave maestra Parque #1</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">P1</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.48919313860333,40.4103770304068</coordinates></Point>
   </Placemark>
   <Placemark>
-	<name>P-X-1-3</name>
+	<name>P-1-3</name>
 	<description>Acceso Lagunas de Velilla</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
 		<SimpleData name="fid">3</SimpleData>
-		<SimpleData name="Codigo">P-X-1-3</SimpleData>
+		<SimpleData name="Codigo">P-1-3</SimpleData>
 		<SimpleData name="Nota">Acceso Lagunas de Velilla</SimpleData>
 		<SimpleData name="Codigo-Exp">Llave maestra Parque #1</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">P1</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.4833749071812,40.3614494822035</coordinates></Point>
   </Placemark>
   <Placemark>
-	<name>P-X-1-4</name>
+	<name>P-1-4</name>
 	<description>Acceso Aldehuela desde M-301</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
 		<SimpleData name="fid">4</SimpleData>
-		<SimpleData name="Codigo">P-X-1-4</SimpleData>
+		<SimpleData name="Codigo">P-1-4</SimpleData>
 		<SimpleData name="Nota">Acceso Aldehuela desde M-301</SimpleData>
 		<SimpleData name="Codigo-Exp">Llave maestra Parque #1</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">P1</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.61603196783662,40.291031951272</coordinates></Point>
   </Placemark>
   <Placemark>
-	<name>P-X-1-5</name>
+	<name>P-1-5</name>
 	<description>Acceso camino de Bastante desde M-301</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
 		<SimpleData name="fid">5</SimpleData>
-		<SimpleData name="Codigo">P-X-1-5</SimpleData>
+		<SimpleData name="Codigo">P-1-5</SimpleData>
 		<SimpleData name="Nota">Acceso camino de Bastante desde M-301</SimpleData>
 		<SimpleData name="Codigo-Exp">Llave maestra Parque #1</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">P1</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.60255676968466,40.2752885407137</coordinates></Point>
   </Placemark>
@@ -80,6 +86,7 @@
 		<SimpleData name="Nota">Acceso oficina servicio Parque</SimpleData>
 		<SimpleData name="Codigo-Exp">Llave larga</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">PLarga</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.51166324905386,40.3217834515326</coordinates></Point>
   </Placemark>
@@ -92,6 +99,7 @@
 		<SimpleData name="Nota">Acceso CEA Campillo</SimpleData>
 		<SimpleData name="Codigo-Exp">Llave larga</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">PLarga</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.51171536284062,40.3212210722468</coordinates></Point>
   </Placemark>
@@ -104,6 +112,7 @@
 		<SimpleData name="Nota">Acceso Soto de las Juntas</SimpleData>
 		<SimpleData name="Codigo-Exp">Llave larga</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">PLarga</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.52256593419334,40.3245939873545</coordinates></Point>
   </Placemark>
@@ -116,6 +125,7 @@
 		<SimpleData name="Nota">Acceso Lagunas de Velilla, camino superior</SimpleData>
 		<SimpleData name="Codigo-Exp">Llave larga</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">PLarga</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.48322781450916,40.36141106268</coordinates></Point>
   </Placemark>
@@ -142,15 +152,16 @@
       <Point><coordinates>-3.52362026216556,40.443391041586</coordinates></Point>
   </Placemark>
   <Placemark>
-	<name>P-X-1-6</name>
+	<name>P-1-6</name>
 	<description>Acceso sur Altos del Piul</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
 		<SimpleData name="fid">12</SimpleData>
-		<SimpleData name="Codigo">P-X-1-6</SimpleData>
+		<SimpleData name="Codigo">P-1-6</SimpleData>
 		<SimpleData name="Nota">Acceso sur Altos del Piul</SimpleData>
 		<SimpleData name="Codigo-Exp">Llave maestra Parque €1</SimpleData>
 		<SimpleData name="Observaciones">Tiene doble candado, el otro es la maestra de Rivas</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">P1</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.51346446727991,40.3221973012023</coordinates></Point>
   </Placemark>
@@ -368,6 +379,7 @@
 		<SimpleData name="Nota">Acceso Carrascal junto residencia</SimpleData>
 		<SimpleData name="Codigo-Exp">Llave larga</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">PLarga</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.43910461132467,40.2891661153393</coordinates></Point>
   </Placemark>
@@ -380,18 +392,20 @@
 		<SimpleData name="Nota">Acceso oeste Carrascal</SimpleData>
 		<SimpleData name="Codigo-Exp">Llave larga</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">PLarga</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.44161007749501,40.2878714775979</coordinates></Point>
   </Placemark>
   <Placemark>
-	<name>P-FVA-1</name>
+	<name>P-2-1</name>
 	<description>Acceso charca Fuente del Valle</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
 		<SimpleData name="fid">32</SimpleData>
-		<SimpleData name="Codigo">P-FVA-1</SimpleData>
+		<SimpleData name="Codigo">P-2-1</SimpleData>
 		<SimpleData name="Nota">Acceso charca Fuente del Valle</SimpleData>
-		<SimpleData name="Observaciones">Mantenimiento charca</SimpleData>
+		<SimpleData name="Observaciones">Mantenimiento charca. Cambiado 8/10/26. JP</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">P2</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.43401388801605,40.2695674293574</coordinates></Point>
   </Placemark>
@@ -443,6 +457,7 @@
 		<SimpleData name="Nota">Acceso Mar de Ontígola por carretera Ontígola</SimpleData>
 		<SimpleData name="Codigo-Exp">Llave larga</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">PLarga</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.5976712735408,40.0190802015315</coordinates></Point>
   </Placemark>
@@ -456,6 +471,7 @@
 		<SimpleData name="Nota">Acceso Mar de Ontígola por Mar Chico</SimpleData>
 		<SimpleData name="Codigo-Exp">Llave larga</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">PLarga</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.60417887505139,40.0208574021842</coordinates></Point>
   </Placemark>
@@ -498,15 +514,16 @@
       <Point><coordinates>-3.6219069213076,40.3101563022954</coordinates></Point>
   </Placemark>
   <Placemark>
-	<name>D-GET-1</name>
+	<name>P-1-7</name>
 	<description>Camino de Vinateros</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
 		<SimpleData name="fid">41</SimpleData>
 		<SimpleData name="Id">202</SimpleData>
-		<SimpleData name="Codigo">D-GET-1</SimpleData>
-		<SimpleData name="Nota">Camino de Vinateros</SimpleData>
-		<SimpleData name="Observaciones">Parte 20260710. Tiene llave policia local. Nosotros no.</SimpleData>
-		<SimpleData name="Clave">D</SimpleData>
+		<SimpleData name="Codigo">P-1-7</SimpleData>
+		<SimpleData name="Nota">Acceso Camino Salmedina</SimpleData>
+		<SimpleData name="Codigo-Exp">Llave maestra Parque €1</SimpleData>
+		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">P1</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.61626666041601,40.3175740518294</coordinates></Point>
   </Placemark>
@@ -557,6 +574,7 @@
 		<SimpleData name="Codigo-Exp">Llave larga</SimpleData>
 		<SimpleData name="Observaciones">Acceso al área recreativa de Las Islillas</SimpleData>
 		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">PLarga</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.49554089751918,40.4053957947432</coordinates></Point>
   </Placemark>
@@ -1088,6 +1106,66 @@
 		<SimpleData name="Clave">R</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.54487921726492,40.2614080805008</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>P-2-1</name>
+	<description>Acceso Concejiles Este</description>
+	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
+		<SimpleData name="fid">89</SimpleData>
+		<SimpleData name="Codigo">P-2-1</SimpleData>
+		<SimpleData name="Nota">Acceso Concejiles Este</SimpleData>
+		<SimpleData name="Observaciones">Candado cuadrado octubre 2026</SimpleData>
+		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">P2</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-3.44958162648638,40.2674372386313</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>P-1-8</name>
+	<description>Acceso Observatorio oeste San Juan</description>
+	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
+		<SimpleData name="fid">90</SimpleData>
+		<SimpleData name="Codigo">P-1-8</SimpleData>
+		<SimpleData name="Nota">Acceso Observatorio oeste San Juan</SimpleData>
+		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">P1</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-3.52356694840168,40.139630179663</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>P-1-9</name>
+	<description>Acceso zona anillamiento San Juan</description>
+	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
+		<SimpleData name="fid">91</SimpleData>
+		<SimpleData name="Codigo">P-1-9</SimpleData>
+		<SimpleData name="Nota">Acceso zona anillamiento San Juan</SimpleData>
+		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">P1</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-3.52351399077294,40.1397849212947</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>P-SJU-1</name>
+	<description>Caseta anilladores observatorio San Juan</description>
+	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
+		<SimpleData name="fid">92</SimpleData>
+		<SimpleData name="Codigo">P-SJU-1</SimpleData>
+		<SimpleData name="Nota">Caseta anilladores observatorio San Juan</SimpleData>
+		<SimpleData name="Clave">P</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-3.51671184911849,40.1418069527855</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>P-L-10</name>
+	<description>Acceso La Riada desde Lagunas de Velilla</description>
+	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
+		<SimpleData name="fid">93</SimpleData>
+		<SimpleData name="Codigo">P-L-10</SimpleData>
+		<SimpleData name="Nota">Acceso La Riada desde Lagunas de Velilla</SimpleData>
+		<SimpleData name="Clave">P</SimpleData>
+		<SimpleData name="Clave Parque">PLarga</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-3.47552062046283,40.3474902823717</coordinates></Point>
   </Placemark>
 </Folder>
 </Document></kml>
