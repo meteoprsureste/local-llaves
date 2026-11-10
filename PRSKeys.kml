@@ -2,278 +2,179 @@
 <kml xmlns="http://www.opengis.net/kml/2.2">
 <Document id="root_doc">
 <Schema name="PRSKeys" id="PRSKeys">
-	<SimpleField name="fid" type="float"></SimpleField>
+	<SimpleField name="Id" type="int"></SimpleField>
 </Schema>
 <Folder><name>PRSKeys</name>
   <Placemark>
 	<name>P-1-1</name>
 	<description>Entrada Islillas Norte</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">1</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.49668069813721,40.4092661694728</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-1-2</name>
 	<description>Puente Islillas Sur</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">2</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.48919313860333,40.4103770304068</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-1-3</name>
 	<description>Acceso Lagunas de Velilla</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">3</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.4833749071812,40.3614494822035</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-1-4</name>
 	<description>Acceso Aldehuela desde M-301</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">4</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.61603196783662,40.291031951272</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-1-5</name>
 	<description>Acceso camino de Bastante desde M-301</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">5</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.60255676968466,40.2752885407137</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-L-1</name>
 	<description>Acceso oficina servicio Parque</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">6</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.51166324905386,40.3217834515326</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-L-2</name>
 	<description>Acceso CEA Campillo</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">7</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.51171536284062,40.3212210722468</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-L-3</name>
 	<description>Acceso Soto de las Juntas</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">8</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.52256593419334,40.3245939873545</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-L-4</name>
 	<description>Acceso Lagunas de Velilla, camino superior</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">9</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.48322781450916,40.36141106268</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>A-SFH-1</name>
 	<description>Acceso camino del Sedano</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">10</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.53031572012721,40.4432872843322</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>A-SFH-1</name>
 	<description>Acceso Camino del Sedano</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">11</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.52362026216556,40.443391041586</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-1-6</name>
 	<description>Acceso sur Altos del Piul</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">12</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.51346446727991,40.3221973012023</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>A-RIV-1</name>
 	<description>Acceso polideportivo Altos del Piul</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">13</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.50984451579782,40.3241076856861</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>A-RIV-1</name>
 	<description>Acceso norte Altos del Piul</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">14</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.52184974347222,40.3781962027135</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>A-RIV-1</name>
 	<description>Acceso entorno Layesera 3M</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">15</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.51842563750326,40.3910646933714</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-CEU-1</name>
 	<description>Acceso Casa Eulogio</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">16</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.55105630430787,40.322461800012</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-CEU-1</name>
 	<description>Acceso monte Casa Vieja, Casa Eulogio</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">17</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.55163834970581,40.3188707045691</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-SCU-1</name>
 	<description>Acceso sur Soto de las Cuevas</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">18</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.6012472572235,40.0918304800051</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-1-10</name>
 	<description>Acceso este ruta Soto Bayona</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">19</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.57276862692757,40.1397324496291</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-1-11</name>
 	<description>Acceso oeste ruta  Soto Bayona</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">20</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.57351485779588,40.139559212809</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-GOZ-1</name>
 	<description>Acceso caserio Gozquez</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">21</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.60204802545269,40.2374128479451</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-GOZ-2</name>
 	<description>Acceso sur monte Casa Gozquez</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">22</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.57861551161093,40.2363219488634</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-GOZ-3</name>
 	<description>Barrera naranja antigua</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">23</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.58391492438441,40.2492831051614</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-GOZ-4</name>
 	<description>Barrera naranja antigua</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">24</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.59311596581697,40.2643302590852</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-TOR-1</name>
 	<description>Acceso sur Torrecilla</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">25</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.59660476609978,40.2772804665991</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>O-MAR-1</name>
 	<description>Acceso norte Marañosa 1</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">26</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.5536055382484,40.2959340247235</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>O-ESP-1</name>
 	<description>Acceso sur al Espartal</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">27</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.62058013912112,40.1742031834863</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-BOY-1</name>
 	<description>Acceso Boyeriza - Presa del Rey</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">28</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.55938805410768,40.2597186654113</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-PIU-1</name>
 	<description>Acceso finca El Piul</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">29</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.48248271073047,40.3288104387536</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-L-5</name>
 	<description>Acceso Carrascal junto residencia</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">30</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.43910461132467,40.2891661153393</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-L-6</name>
 	<description>Acceso oeste Carrascal</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">31</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.44161007749501,40.2878714775979</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-2-1</name>
 	<description>Acceso charca Fuente del Valle</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">32</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.43401388801605,40.2695674293574</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>O-CAM-1</name>
 	<description>Acceso CEA Campillo</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">33</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.4975614405591,40.3189338657602</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-REG-1</name>
 	<description>Acceso finca El Regajal</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">34</SimpleData>
+		<SimpleData name="Id">103</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.60078942398423,40.0045044062802</coordinates></Point>
   </Placemark>
@@ -281,7 +182,7 @@
 	<name>O-SOT-1</name>
 	<description>Acceso Sotomayor</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">35</SimpleData>
+		<SimpleData name="Id">100</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.55400933134439,40.0423078891748</coordinates></Point>
   </Placemark>
@@ -289,7 +190,7 @@
 	<name>P-L-8</name>
 	<description>Acceso Mar de Ontígola por carretera Ontígola</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">36</SimpleData>
+		<SimpleData name="Id">102</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.5976712735408,40.0190802015315</coordinates></Point>
   </Placemark>
@@ -297,7 +198,7 @@
 	<name>P-L-7</name>
 	<description>Acceso Mar de Ontígola por Mar Chico</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">37</SimpleData>
+		<SimpleData name="Id">101</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.60417887505139,40.0208574021842</coordinates></Point>
   </Placemark>
@@ -305,7 +206,7 @@
 	<name>A-AMI-1</name>
 	<description>Acceso arroyo de los Migueles</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">38</SimpleData>
+		<SimpleData name="Id">104</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.5374142191959,40.3330216665361</coordinates></Point>
   </Placemark>
@@ -313,7 +214,7 @@
 	<name>R-ALD-1</name>
 	<description>Acceso este Aldehuela</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">39</SimpleData>
+		<SimpleData name="Id">200</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.55985174863181,40.3144007082262</coordinates></Point>
   </Placemark>
@@ -321,7 +222,7 @@
 	<name>D-GET-2</name>
 	<description>Camino de Vinateros</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">40</SimpleData>
+		<SimpleData name="Id">201</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.6219069213076,40.3101563022954</coordinates></Point>
   </Placemark>
@@ -329,207 +230,138 @@
 	<name>P-1-7</name>
 	<description>Camino de Vinateros</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">41</SimpleData>
+		<SimpleData name="Id">202</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.61626666041601,40.3175740518294</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>O-ESP-2</name>
 	<description>Acceso norte El Espartal</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">42</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.62389998281837,40.2001100796042</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-POR-1</name>
 	<description>Acceso finca El Porcal</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">43</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.51015514389888,40.3094485261731</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-SPI-1</name>
 	<description>Acceso Sotillo y Picón</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">44</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.50042458783517,40.3690410960104</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-L-9</name>
 	<description>Acceso Las Islillas</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">45</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.49554089751918,40.4053957947432</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-SMV-1</name>
 	<description>Acceso área recreativa San Martin 1</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">46</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.56396639403365,40.2090549501028</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-SMV-2</name>
 	<description>Acceso ex-área recreativa San Martín</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">47</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.54956911369363,40.2206531039939</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-SMV-3</name>
 	<description>Acceso área recreativa San Martín 3, Puente Caido</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">48</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.54351380389313,40.2298078429827</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>D-CCJ-1</name>
 	<description>Cerros Concejiles</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">49</SimpleData>
+		<SimpleData name="Id">203</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.48958244176532,40.2808180735094</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-CEU-1</name>
 	<description>Casa Eulogio Aceeso camino derrumbe</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">50</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.54852378431861,40.321969726736</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>O-CHE-1</name>
 	<description>Entrada recinto Caserio Henares</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">51</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.4906843770577,40.4231400178118</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>O-CHE-2</name>
 	<description>Acceso finca, cadena</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">52</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.48966959952195,40.4229706467106</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>O-CHE-3</name>
 	<description>Acceso Caserio desde Aldovea</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">53</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.47372859453674,40.4304799820103</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-CGO-1</name>
 	<description>Acceso casas Cerro Gordo</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">54</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.478054500992,40.4224660056124</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-CGO-2</name>
 	<description>Acceso Cerro Gordo por la ribera</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">55</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.47776392775836,40.4196234348966</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-SFE-1</name>
 	<description>Acceso a San Felix desde el Cerro del Grajo</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">56</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.63558943647197,40.2838019845141</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>O-MAR-3</name>
 	<description>Acceso Marañosa desde Jarama</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">57</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.5572877229946,40.2771519719352</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>O-MAR-2</name>
 	<description>Acceso Marañosa desde Casa Eulogio</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">58</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.56234829994385,40.291876205879</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-CON-1</name>
 	<description>Acceso finca el Congosto</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">59</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.56310611549315,40.3220629494574</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-POR-2</name>
 	<description>Acceso El Porcal desde Presa del Rey</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">60</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.54169687166649,40.2989921431703</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>O-REY-1</name>
 	<description>Acceso a la Presa del Rey</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">61</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.54310038574588,40.298742628608</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-RVE-1</name>
 	<description>Acceso al Rincon Verde</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">62</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.59198380836069,40.2648893625268</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-ALH-1</name>
 	<description>Acceso a La Aldehuela</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">63</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.59324933784554,40.3000413246822</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-PRE-1</name>
 	<description>Acceso a Preresa</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">64</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.59365745324906,40.3024685730394</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-ALH-2</name>
 	<description>Acceso Aldehuela prados Manzanares</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">65</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.59763988235951,40.3041470093985</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>D-PLA-3</name>
 	<description>Paseo de los Plátanos</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">66</SimpleData>
+		<SimpleData name="Id">207</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.50546101088611,40.4193473169336</coordinates></Point>
   </Placemark>
@@ -537,7 +369,7 @@
 	<name>D-PLA-1</name>
 	<description>Paseo de los Plátanos</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">67</SimpleData>
+		<SimpleData name="Id">205</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.5131252080596,40.4134486357586</coordinates></Point>
   </Placemark>
@@ -545,7 +377,7 @@
 	<name>D-PLA-2</name>
 	<description>Paseo de los Plátanos</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">68</SimpleData>
+		<SimpleData name="Id">206</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.51350215620317,40.4134199349565</coordinates></Point>
   </Placemark>
@@ -553,7 +385,7 @@
 	<name>A-RIVI-1</name>
 	<description>Cortados El Piul</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">69</SimpleData>
+		<SimpleData name="Id">204</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.50970782976663,40.3572737244594</coordinates></Point>
   </Placemark>
@@ -561,7 +393,7 @@
 	<name>R-MAP-1</name>
 	<description>Acceso La Marañosa-Pingarrón</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">70</SimpleData>
+		<SimpleData name="Id">209</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.51437518408096,40.2072211528663</coordinates></Point>
   </Placemark>
@@ -569,7 +401,7 @@
 	<name>R-VRO-1</name>
 	<description>Acceso Valrromeroso</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">71</SimpleData>
+		<SimpleData name="Id">210</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.52986614580562,40.192592048037</coordinates></Point>
   </Placemark>
@@ -577,7 +409,7 @@
 	<name>R-VED-2</name>
 	<description>Acceso El Vedadillo</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">72</SimpleData>
+		<SimpleData name="Id">211</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.55427773429285,40.1592688824727</coordinates></Point>
   </Placemark>
@@ -585,7 +417,7 @@
 	<name>R-VED-1</name>
 	<description>Acceso El Vedadillo</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">73</SimpleData>
+		<SimpleData name="Id">212</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.552121813486,40.1583962534135</coordinates></Point>
   </Placemark>
@@ -593,7 +425,7 @@
 	<name>R-SPI-2</name>
 	<description>Acceso sur Picón</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">74</SimpleData>
+		<SimpleData name="Id">208</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.49978820311361,40.3631549669624</coordinates></Point>
   </Placemark>
@@ -601,7 +433,7 @@
 	<name>R-VPI-2</name>
 	<description>Vega del Pingarrón - Marañosa</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">75</SimpleData>
+		<SimpleData name="Id">215</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.54793697272008,40.2089230897704</coordinates></Point>
   </Placemark>
@@ -609,7 +441,7 @@
 	<name>R-VED-3</name>
 	<description>El Vedadillo</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">76</SimpleData>
+		<SimpleData name="Id">216</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.55417214671565,40.1679455131963</coordinates></Point>
   </Placemark>
@@ -617,7 +449,7 @@
 	<name>R-MCO-1</name>
 	<description>Minas del Consuelo</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">77</SimpleData>
+		<SimpleData name="Id">213</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.54839723430588,40.1931273976941</coordinates></Point>
   </Placemark>
@@ -625,7 +457,7 @@
 	<name>R-VPI-1</name>
 	<description>Vega del Pingarrón</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">78</SimpleData>
+		<SimpleData name="Id">214</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.55393964753651,40.2072277794227</coordinates></Point>
   </Placemark>
@@ -633,7 +465,7 @@
 	<name>R-ALD-4</name>
 	<description>Camino Aldehuela</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">79</SimpleData>
+		<SimpleData name="Id">221</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.62370251544854,40.3032185331108</coordinates></Point>
   </Placemark>
@@ -641,7 +473,7 @@
 	<name>R-ALD-5</name>
 	<description>Camino Aldehuela</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">80</SimpleData>
+		<SimpleData name="Id">222</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.6238096582918,40.303353094061</coordinates></Point>
   </Placemark>
@@ -649,7 +481,7 @@
 	<name>R-CEU-2</name>
 	<description>Caminos acceso al río</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">81</SimpleData>
+		<SimpleData name="Id">219</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.53724191949274,40.3261394202862</coordinates></Point>
   </Placemark>
@@ -657,7 +489,7 @@
 	<name>R-CEU-3</name>
 	<description>Caminos acceso al río</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">82</SimpleData>
+		<SimpleData name="Id">220</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.53174339469675,40.3259666234487</coordinates></Point>
   </Placemark>
@@ -665,7 +497,7 @@
 	<name>R-VED-4</name>
 	<description>El Vedadillo</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">83</SimpleData>
+		<SimpleData name="Id">217</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.55681667523656,40.1581485342943</coordinates></Point>
   </Placemark>
@@ -673,23 +505,20 @@
 	<name>R-SOT-1</name>
 	<description>Acceso explotación minera, el Sotillo</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">84</SimpleData>
+		<SimpleData name="Id">218</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.57995597736634,40.1396736026943</coordinates></Point>
   </Placemark>
   <Placemark>
-	<name>P-MAS-1</name>
+	<name>P-2-3</name>
 	<description>Acceso Campillo por Maspalomas</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">85</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.51478110452848,40.3220353025197</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>R-SFE-2</name>
 	<description>Acceso casas de San Félix</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">86</SimpleData>
+		<SimpleData name="Id">223</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.65875732697867,40.2729513456268</coordinates></Point>
   </Placemark>
@@ -697,7 +526,7 @@
 	<name>R-PPI-1</name>
 	<description>Acceso al Puente de Pindoque</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">87</SimpleData>
+		<SimpleData name="Id">224</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.54624169021926,40.2641224731315</coordinates></Point>
   </Placemark>
@@ -705,49 +534,44 @@
 	<name>R-PPI-2</name>
 	<description>Acceso al Puente de Pindoque</description>
 	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">88</SimpleData>
+		<SimpleData name="Id">225</SimpleData>
 	</SchemaData></ExtendedData>
       <Point><coordinates>-3.54487921726492,40.2614080805008</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-2-1</name>
 	<description>Acceso Concejiles Este</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">89</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.44958162648638,40.2674372386313</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-1-8</name>
 	<description>Acceso Observatorio oeste San Juan</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">90</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.52356694840168,40.139630179663</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-1-9</name>
 	<description>Acceso zona anillamiento San Juan</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">91</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.52351399077294,40.1397849212947</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-SJU-1</name>
 	<description>Caseta anilladores observatorio San Juan</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">92</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.51671184911849,40.1418069527855</coordinates></Point>
   </Placemark>
   <Placemark>
 	<name>P-L-10</name>
 	<description>Acceso La Riada desde Lagunas de Velilla</description>
-	<ExtendedData><SchemaData schemaUrl="#PRSKeys">
-		<SimpleData name="fid">93</SimpleData>
-	</SchemaData></ExtendedData>
       <Point><coordinates>-3.47552062046283,40.3474902823717</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>P-2-4</name>
+	<description>Acceso antiguo matadero/feriantes</description>
+      <Point><coordinates>-3.52020159203193,40.3246838582246</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>P-2-5</name>
+	<description>Acceso pinar de Pacadar</description>
+      <Point><coordinates>-3.49924175853085,40.3239275447346</coordinates></Point>
   </Placemark>
 </Folder>
 </Document></kml>
